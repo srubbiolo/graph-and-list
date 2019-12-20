@@ -15,18 +15,17 @@ const GraphMain = () => {
 
     useEffect(() => {
 
-    }, [csvDataStatus, csvData, setShowGraph])
+    }, [csvDataStatus, csvData, setShowGraph, xAxis, yAxis])
 
     return (
         <Container>
+            <h1>Graph (part 1)</h1>
             <Row>
                 <Col>
                     <CsvInput 
                         setCsvData={setCsvData}
                         setCsvDataStatus={setCsvDataStatus}
                     />
-                    <h1>{csvData}</h1>
-                    <h1>{csvDataStatus}</h1>
                 </Col>
                 <Col>
                     {csvDataStatus && <AxisSelector 
@@ -38,8 +37,13 @@ const GraphMain = () => {
                     }
                 </Col>
             </Row>
-            <Row>
-                {showGraph && <Graph/> }
+            <Row className="justify-content-md-center">
+                {showGraph && <Graph
+                                xAxis={xAxis}
+                                yAxis={yAxis}
+                                csvData={csvData}
+                            />
+                }
             </Row>
         </Container>
     )

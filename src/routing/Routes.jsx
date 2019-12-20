@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import GraphMain from '../components/Graph/graphMain';
 import ListMain from '../components/List/listMain';
 
+//Routing of the app, default goes to /graph
 const Routes = () => {
     return <Router>
                 <Switch>

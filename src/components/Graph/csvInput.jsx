@@ -2,7 +2,7 @@ import React, { useState }from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const CsvInput = ({setCsvData, setCsvDataStatus}) => {
 
@@ -30,8 +30,7 @@ const CsvInput = ({setCsvData, setCsvDataStatus}) => {
                     definiteArray[j][i] = value;
                 } else {
                     if (definiteArray[j] === undefined) {
-                        console.log('error')
-                        toast.warn('Error with the CSV entered!', {
+                        toast.error('Error with the CSV entered!', {
                             position: toast.POSITION.TOP_CENTER,
                             closeButton: true,
                             autoClose: 5000
@@ -47,7 +46,7 @@ const CsvInput = ({setCsvData, setCsvDataStatus}) => {
         });
 
         if (definiteArray.length < 2) {
-            toast.warn('Error with the CSV entered!', {
+            toast.error('Error with the CSV entered!', {
                 position: toast.POSITION.TOP_CENTER,
                 closeButton: true,
                 autoClose: 5000
@@ -63,7 +62,7 @@ const CsvInput = ({setCsvData, setCsvDataStatus}) => {
             <InputGroup.Prepend>
             <InputGroup.Text>Enter a CSV file</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl
+            <FormControl style={{height: '160px'}}
                 as="textarea"
                 aria-label="Enter a CSV file"
                 onChange={(e) => inputChanged(e.target.value)}/>
